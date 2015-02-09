@@ -48,4 +48,14 @@ public class Test
         stock.delivery(2, 4);
         return stock.numberInStock(2);
     }
+    
+     public void test6()
+    {
+        StockManager stock = new StockManager();
+        stock.addProduct(new Product(1, "a"));
+        stock.addProduct(new Product(2, "b"));
+        stock.addProduct(new Product(3, "c"));
+        stock.delivery(2, 4);
+        stock.printProductDetailsBellowStock(3);
+    }
 }
