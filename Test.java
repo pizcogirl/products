@@ -68,4 +68,22 @@ public class Test
         stock.delivery(2, 4);
         stock.addProduct(new Product(3, "d"));
     }
+    
+        public Product test8()
+    {
+        StockManager stock = new StockManager();
+        stock.addProduct(new Product(1, "a"));
+        stock.addProduct(new Product(2, "b"));
+        stock.addProduct(new Product(3, "c"));
+         return stock.findProduct("b");
+    }
+
+    public Product test9()
+    {
+        StockManager stock = new StockManager();
+        stock.addProduct(new Product(1, "a"));
+        stock.addProduct(new Product(2, "b"));
+        stock.addProduct(new Product(3, "c"));
+        return stock.findProduct("d");
+    }
 }

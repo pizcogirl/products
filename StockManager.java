@@ -102,6 +102,31 @@ public class StockManager
 
         return product;
     }
+    
+    /**
+     * Try to find a product in the stock with the given name.
+     * @return The identidied product, or null if there is none with
+     *         a matching name.
+     */
+    public Product findProduct(String name)
+    {
+         // Usamos un bucle while para que exista una condicion de salida
+        // Creamos un index y un boolean para el while, y un objeto product para devolver
+        int i = 0;
+        boolean found = false;
+        Product product = null;
+        while (i < stock.size() && !(found))
+        {
+            Product temp = stock.get(i);
+            if (temp.getName() == name)
+            {
+                product = temp;
+                found = true;
+            }
+            i++;
+        }
+        return product;
+    }
 
     /**
      * Locate a product with the given ID, and return how
