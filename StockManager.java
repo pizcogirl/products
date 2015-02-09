@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 /**
  * Manage the stock in a business.
@@ -39,8 +41,8 @@ public class StockManager
             System.out.println("La ID introducida ya existe en el stock");
         }
     }
-    
-     /**
+
+    /**
      * Receive a delivery of a particular product.
      * Increase the quantity of the product by the given amount.
      * @param id The ID of the product.
@@ -87,7 +89,7 @@ public class StockManager
 
         return product;
     }
-    
+
     /**
      * Try to find a product in the stock with the given name.
      * @return The identidied product, or null if there is none with
@@ -95,7 +97,7 @@ public class StockManager
      */
     public Product findProduct(String name)
     {
-         // Usamos un bucle while para que exista una condicion de salida
+        // Usamos un bucle while para que exista una condicion de salida
         // Creamos un index y un boolean para el while, y un objeto product para devolver
         int i = 0;
         boolean found = false;
@@ -122,7 +124,7 @@ public class StockManager
      */
     public int numberInStock(int id)
     {
-       // En este caso usaremos el metodo findProduct
+        // En este caso usaremos el metodo findProduct
         Product temp = findProduct(id);
         int quantity = 0;
         // Si el objeto existe, devolveremos esa cantidad,
@@ -166,6 +168,22 @@ public class StockManager
             {
                 System.out.println(temp.toString());
             }
+        }
+    }
+
+    /**
+     * Print details of all the products.
+     */
+    public void printProductDetails2()
+    {
+        // Creamos una copia de la lista para ordenar
+        ArrayList<Product> copia = new ArrayList<Product>(stock);
+        // La ordenamos en funcion del stock, y luego la imprimimos
+        Collections.sort(copia, new Product());
+        
+        for (int i = 0; i < copia.size(); i++)
+        {
+            System.out.println(copia.get(i).toString());
         }
     }
 }

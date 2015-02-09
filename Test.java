@@ -86,4 +86,16 @@ public class Test
         stock.addProduct(new Product(3, "c"));
         return stock.findProduct("d");
     }
+    
+     public void test10()
+    {
+        StockManager stock = new StockManager();
+        stock.addProduct(new Product(1, "a"));
+        stock.addProduct(new Product(2, "b"));
+        stock.addProduct(new Product(3, "c"));
+        stock.delivery(1, 3);
+        stock.delivery(2, 4);
+        stock.delivery(3, 2);
+        stock.printProductDetails2();
+    }
 }

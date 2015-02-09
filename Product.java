@@ -1,10 +1,13 @@
+import java.util.Comparator;
+import java.lang.Comparable;
+
 /**
  * Model some details of a product sold by a company.
  * 
  * @author David J. Barnes and Michael Kölling.
  * @version 2011.07.31
  */
-public class Product
+public class Product implements Comparator<Product>, Comparable<Product>
 {
     // An identifying number for this product.
     private int id;
@@ -12,6 +15,7 @@ public class Product
     private String name;
     // The quantity of this product in stock.
     private int quantity;
+    Product(){}
 
     /**
      * Constructor for objects of class Product.
@@ -19,13 +23,24 @@ public class Product
      * @param id The product's identifying number.
      * @param name The product's name.
      */
-    public Product(int id, String name)
+    Product(int id, String name)
     {
         this.id = id;
         this.name = name;
         quantity = 0;
     }
-
+    
+    // Compara las cantidades de dos objetos, para ordenar
+    public int compare(Product o1, Product o2) 
+    {
+        return o1.getQuantity() - o2.getQuantity();
+    }
+    
+    // Compara los nombres de dos productos, otra forma de ordenar
+    public int compareTo(Product d){
+      return (this.name).compareTo(d.name);
+   }
+   
     /**
      * @return The product's id.
      */
