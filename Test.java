@@ -33,6 +33,7 @@ public class Test
         stock.addProduct(new Product(1, "a"));
         stock.addProduct(new Product(2, "b"));
         stock.addProduct(new Product(3, "c"));
+        stock.delivery(4, 2);
         return stock.numberInStock(4);
     }
     
@@ -44,6 +45,7 @@ public class Test
         stock.addProduct(new Product(1, "a"));
         stock.addProduct(new Product(2, "b"));
         stock.addProduct(new Product(3, "c"));
+        stock.delivery(2, 4);
         return stock.numberInStock(2);
     }
 }

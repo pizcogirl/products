@@ -37,8 +37,24 @@ public class StockManager
      */
     public void delivery(int id, int amount)
     {
+        // Usamos un bucle while para que exista una condicion de salida
+        // Creamos un index y un boolean para el while.
+        int i = 0;
         boolean found = false;
-        
+        while (i < stock.size() && found == false)
+        {
+            Product temp = stock.get(i);
+            if (temp.getID() == id)
+            {
+                temp.increaseQuantity(amount);
+                found = true;
+            }
+            i++;
+        }
+        if (found == false)
+        {
+            System.out.println("El ID introducido no existe");
+        }
     }
     
     /**
