@@ -26,7 +26,26 @@ public class StockManager
      */
     public void addProduct(Product item)
     {
-        stock.add(item);
+        boolean IDRepetido = false;
+        int i = 0;
+        int id = item.getID();
+        while (i < stock.size() && !(IDRepetido))
+        {
+            Product temp = stock.get(i);
+            if (temp.getID() == id)
+            {
+                IDRepetido = true;
+            }
+            i++;
+        }
+        if (!(IDRepetido))
+        {
+            stock.add(item);
+        }
+        else
+        {
+            System.out.println("La ID introducida ya existe en el stock");
+        }
     }
 
     /**
@@ -41,9 +60,10 @@ public class StockManager
         // Creamos un index y un boolean para el while.
         int i = 0;
         boolean found = false;
+        Product temp = null;
         while (i < stock.size() && !(found))
         {
-            Product temp = stock.get(i);
+            temp = stock.get(i);
             if (temp.getID() == id)
             {
                 temp.increaseQuantity(amount);
@@ -97,9 +117,10 @@ public class StockManager
         int i = 0;
         boolean found = false;
         int quantity = 0;
+        Product temp = null;
         while (i < stock.size() && !(found))
         {
-            Product temp = stock.get(i);
+            temp = stock.get(i);
             if (temp.getID() == id)
             {
                 quantity = temp.getQuantity();

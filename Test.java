@@ -58,4 +58,14 @@ public class Test
         stock.delivery(2, 4);
         stock.printProductDetailsBellowStock(3);
     }
+    
+    public void test7()
+    {
+        StockManager stock = new StockManager();
+        stock.addProduct(new Product(1, "a"));
+        stock.addProduct(new Product(2, "b"));
+        stock.addProduct(new Product(3, "c"));
+        stock.delivery(2, 4);
+        stock.addProduct(new Product(3, "d"));
+    }
 }
