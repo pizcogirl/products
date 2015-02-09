@@ -26,19 +26,11 @@ public class StockManager
      */
     public void addProduct(Product item)
     {
-        boolean IDRepetido = false;
-        int i = 0;
+        // Usando el metodo findProduct comprobamos si el ID existe ya
         int id = item.getID();
-        while (i < stock.size() && !(IDRepetido))
-        {
-            Product temp = stock.get(i);
-            if (temp.getID() == id)
-            {
-                IDRepetido = true;
-            }
-            i++;
-        }
-        if (!(IDRepetido))
+        Product temp = findProduct(id);
+        // Si no existe lo añadimos a la lista
+        if (temp == null)
         {
             stock.add(item);
         }
@@ -47,8 +39,8 @@ public class StockManager
             System.out.println("La ID introducida ya existe en el stock");
         }
     }
-
-    /**
+    
+     /**
      * Receive a delivery of a particular product.
      * Increase the quantity of the product by the given amount.
      * @param id The ID of the product.
@@ -56,22 +48,15 @@ public class StockManager
      */
     public void delivery(int id, int amount)
     {
-        // Usamos un bucle while para que exista una condicion de salida
-        // Creamos un index y un boolean para el while.
-        int i = 0;
-        boolean found = false;
-        Product temp = null;
-        while (i < stock.size() && !(found))
+        // En este caso usaremos el metodo findProduct para su uso
+        Product temp = findProduct(id);
+        // Si el objeto existe, le añadimos la cantidad introducida
+        // sino imprime un mensaje de error
+        if (temp != null)
         {
-            temp = stock.get(i);
-            if (temp.getID() == id)
-            {
-                temp.increaseQuantity(amount);
-                found = true;
-            }
-            i++;
+            temp.increaseQuantity(amount);
         }
-        if (!(found))
+        else
         {
             System.out.println("El ID introducido no existe");
         }
@@ -137,21 +122,18 @@ public class StockManager
      */
     public int numberInStock(int id)
     {
-        // Usamos un bucle while para que exista una condicion de salida
-        // Creamos un index y un boolean para el while, y un int para devolver
-        int i = 0;
-        boolean found = false;
+       // En este caso usaremos el metodo findProduct
+        Product temp = findProduct(id);
         int quantity = 0;
-        Product temp = null;
-        while (i < stock.size() && !(found))
+        // Si el objeto existe, devolveremos esa cantidad,
+        // sino devolveremos 0
+        if (temp != null)
         {
-            temp = stock.get(i);
-            if (temp.getID() == id)
-            {
-                quantity = temp.getQuantity();
-                found = true;
-            }
-            i++;
+            quantity = temp.getQuantity();
+        }
+        else
+        {
+            System.out.println("El ID introducido no existe");
         }
         return quantity;
     }
