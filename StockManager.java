@@ -48,7 +48,23 @@ public class StockManager
      */
     public Product findProduct(int id)
     {
-        return null;
+        // Usamos un bucle while para que exista una condicion de salida
+        // Creamos un index y un boolean para el while, y un objeto product para devolver
+        int i = 0;
+        boolean found = false;
+        Product product = null;
+        while (i < stock.size() && found == false)
+        {
+            Product temp = stock.get(i);
+            if (temp.getID() == id)
+            {
+                product = temp;
+                found = true;
+            }
+            i++;
+        }
+        
+        return product;
     }
     
     /**
@@ -60,7 +76,22 @@ public class StockManager
      */
     public int numberInStock(int id)
     {
-        return 0;
+        // Usamos un bucle while para que exista una condicion de salida
+        // Creamos un index y un boolean para el while, y un int para devolver
+        int i = 0;
+        boolean found = false;
+        int quantity = 0;
+        while (i < stock.size() && found == false)
+        {
+            Product temp = stock.get(i);
+            if (temp.getID() == id)
+            {
+                quantity = temp.getQuantity();
+                found = true;
+            }
+            i++;
+        }
+        return quantity;
     }
 
     /**
