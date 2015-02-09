@@ -37,6 +37,8 @@ public class StockManager
      */
     public void delivery(int id, int amount)
     {
+        boolean found = false;
+        
     }
     
     /**
@@ -66,5 +68,9 @@ public class StockManager
      */
     public void printProductDetails()
     {
+        for (int i = 0; i < stock.size(); i++)
+        {
+            System.out.println(stock.get(i).toString());
+        }
     }
 }
