@@ -1,4 +1,3 @@
-import java.util.Comparator;
 import java.lang.Comparable;
 
 /**
@@ -7,7 +6,7 @@ import java.lang.Comparable;
  * @author David J. Barnes and Michael Kölling.
  * @version 2011.07.31
  */
-public class Product implements Comparator<Product>, Comparable<Product>
+public class Product implements Comparable<Product>
 {
     // An identifying number for this product.
     private int id;
@@ -15,7 +14,7 @@ public class Product implements Comparator<Product>, Comparable<Product>
     private String name;
     // The quantity of this product in stock.
     private int quantity;
-    Product(){}
+   
 
     /**
      * Constructor for objects of class Product.
@@ -29,16 +28,17 @@ public class Product implements Comparator<Product>, Comparable<Product>
         this.name = name;
         quantity = 0;
     }
+//     
+//     // Compara las cantidades de dos objetos, para ordenar
+//     public int compare(Product o1, Product o2) 
+//     {
+//         return o1.getQuantity() - o2.getQuantity();
+//     }
     
-    // Compara las cantidades de dos objetos, para ordenar
-    public int compare(Product o1, Product o2) 
-    {
-        return o1.getQuantity() - o2.getQuantity();
-    }
-    
-    // Compara los nombres de dos productos, otra forma de ordenar
+    // Compara las cantidades de dos productos, otra forma de ordenar
     public int compareTo(Product d){
-      return (this.name).compareTo(d.name);
+      int diferencia = this.quantity - d.getQuantity();        
+      return diferencia;
    }
    
     /**

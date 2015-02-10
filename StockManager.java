@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 
 /**
  * Manage the stock in a business.
@@ -179,7 +178,7 @@ public class StockManager
         // Creamos una copia de la lista para ordenar
         ArrayList<Product> copia = new ArrayList<Product>(stock);
         // La ordenamos en funcion del stock, y luego la imprimimos
-        Collections.sort(copia, new Product());
+        Collections.sort(copia);
         
         for (int i = 0; i < copia.size(); i++)
         {
