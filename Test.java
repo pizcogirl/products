@@ -96,6 +96,6 @@ public class Test
         stock.delivery(1, 3);
         stock.delivery(2, 4);
         stock.delivery(3, 2);
-        stock.printProductDetails2();
+        stock.printProductDetails3();
     }
 }

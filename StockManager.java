@@ -171,7 +171,7 @@ public class StockManager
     }
 
     /**
-     * Print details of all the products.
+     * Print details of all the products order by stock desc.
      */
     public void printProductDetails2()
     {
@@ -179,10 +179,44 @@ public class StockManager
         ArrayList<Product> copia = new ArrayList<Product>(stock);
         // La ordenamos en funcion del stock, y luego la imprimimos
         Collections.sort(copia);
-        
+
         for (int i = 0; i < copia.size(); i++)
         {
             System.out.println(copia.get(i).toString());
         }
     }
+
+    /**
+     * Print details of all the products order by stock desc.
+     */
+    public void printProductDetails3()
+    {
+        // Creamos una copia de la lista para ordenar
+        ArrayList<Product> copia = new ArrayList<Product>(stock);
+        // El numero de vueltas a dar para organizar la lista sera igual a la longitud de la copia
+        int numVueltas = copia.size();
+        for (int i = 0; i < numVueltas; i++)
+        {
+            // Creamos un indice para el while, para tomar los objetos a comparar
+            int indice = 0;
+            // Tomamos objetos dos a dos y comparamos el stock, si el segundo es menor, intercambiamos posiciones
+            while (indice < (numVueltas - 1))
+            {
+                Product p1 = copia.get(indice);
+                Product p2 = copia.get(indice +1);
+                if (p1.getQuantity() > p2.getQuantity())
+                {
+                    copia.remove(p2);
+                    copia.add(indice, p2);
+                }
+                indice++;
+            }
+        }
+        for (int i = 0; i < copia.size(); i++)
+        {
+            System.out.println(copia.get(i).toString());
+        }
+
+    }
+
 }
